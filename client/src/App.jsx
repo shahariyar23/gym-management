@@ -87,7 +87,7 @@ function App() {
           <Route path="account" element={<GymAccount />} />
           <Route path="payment/success/:trnID" element={<CaptureOrder />} />
           <Route path="payment/fail/:trnID" element={<PaymentFail />} />
-          <Route path="payment/cancel" element={<PaymentCancel />} />
+          {/* <Route path="payment/cancel" element={<PaymentCancel />} /> */}
           <Route path="order/success" element={<OrderSuccess />} />
         </Route>
         <Route path="*" element={<NotFound />} />
