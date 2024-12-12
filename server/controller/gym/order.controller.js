@@ -25,10 +25,10 @@ const createOrder = async (req, res) => {
     total_amount: totalAmount,
     currency: "BDT",
     tran_id: id, // use unique tran_id for each api call
-    success_url: `http://localhost:5000/api/gym/order/payment/success/${id}`,
-    fail_url: `http://localhost:5000/api/gym/order/payment/fail/${id}`,
-    cancel_url: "http://localhost:5173/gym/payment/cancel",
-    ipn_url: "http://localhost:3030/ipn",
+    success_url: `${process.env.REACT_APP_SUCCESS_URL}/api/gym/order/payment/success/${id}`,
+    fail_url: `${process.env.REACT_APP_SUCCESS_URL}/api/gym/order/payment/fail/${id}`,
+    cancel_url: `${process.env.REACT_APP_SUCCESS_URL}/gym/payment/cancel` ,
+    ipn_url: `${process.env.REACT_APP_SUCCESS_URL}/ipn`,
     shipping_method: "Courier",
     product_name: "Computer.",
     product_category: "Electronic",
@@ -94,7 +94,7 @@ const paymentSuccess = async (req, res) => {
 
   if (result.modifiedCount > 0) {
     res.redirect(
-      `http://localhost:5173/gym/payment/success/${req?.params?.trnID}`
+      `${process.env.REACT_APP_CLIND_BASE_URL}/gym/payment/success/${req?.params?.trnID}`
     );
   }
 };
@@ -112,7 +112,7 @@ const paymentFail = async (req, res) => {
 
   if (result.modifiedCount > 0) {
     res.redirect(
-      `http://localhost:5173/gym/payment/fail/${req?.params?.trnID}`
+      `${process.env.REACT_APP_CLIND_BASE_URL}/gym/payment/fail/${req?.params?.trnID}`
     );
   }
 };

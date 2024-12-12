@@ -3,9 +3,9 @@ const multer = require("multer");
 
 // Configure Cloudinary
 cloudinary.config({
-  cloud_name: "mostakshahariyar",
-  api_key: "548443337817757",
-  api_secret: "HSIW6TuOs2Ci3yIjt7jsBdNmDp8",
+  cloud_name: process.env.REACT_APP_CLOUD_NAME,
+  api_key: process.env.REACT_APP_API_KEY,
+  api_secret:  process.env.REACT_APP_API_SECRET
 });
 
 // Use multer memory storage to store files in memory as buffer
