@@ -67,6 +67,14 @@ function App() {
           <Route path="product" element={<AdminFeatures />} />
           <Route path="course" element={<AdminGymCourse />} />
         </Route>
+
+        <Route path="/" element={<GymLayOut />}>
+          <Route path="/gym/dashboard" element={<GymHome />} />
+          <Route path="/gym/listing" element={<GymListing />} />
+          <Route path="/gym/accessories" element={<Accessories />} />
+          <Route path="/gym/search" element={<SearchResult />} />
+        </Route>
+
         <Route path="/gym" element={<GymLayOut />}>
           <Route path="/gym/dashboard" element={<GymHome />} />
           <Route path="/gym/listing" element={<GymListing />} />
